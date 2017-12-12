@@ -150,7 +150,7 @@ namespace codal
     }
 }
 
-void brainpad_dmesg_flush();
+void nucle_dmesg_flush();
 
 using namespace codal;
 
