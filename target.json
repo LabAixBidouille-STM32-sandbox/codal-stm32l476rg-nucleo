@@ -44,6 +44,12 @@
             "type":"git"
         },
         {
+            "name":"codal-mbedos",
+            "url":"https://github.com/LabAixBidouille-STM32/codal-mbedos",
+            "branch":"master",
+            "type":"git"
+        },
+        {
             "name":"codal-stm32l476",
             "url":"https://github.com/LabAixBidouille-STM32/codal-stm32l476",
             "branch":"master",
