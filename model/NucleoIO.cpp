@@ -2,6 +2,7 @@
 The MIT License (MIT)
 
 Copyright (c) 2017 Lancaster University.
+Copyright (c) 2017 Paul ADAM, inidinn.com
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
@@ -28,7 +29,7 @@ DEALINGS IN THE SOFTWARE.
   */
 
 #include "CodalConfig.h"
-#include "BrainPadIO.h"
+#include "NucleoIO.h"
 
 using namespace codal;
 
@@ -40,7 +41,7 @@ using namespace codal;
   * Accepts a sequence of unique ID's used to distinguish events raised
   * by MicroBitPin instances on the default EventModel.
   */
-BrainPadIO::BrainPadIO() :
+NucleoIO::NucleoIO() :
     A0 (ID_PIN_P0, PA_0, PIN_CAPABILITY_AD),
     A1 (ID_PIN_P1, PA_1, PIN_CAPABILITY_AD),
     A2 (ID_PIN_P2, PA_4, PIN_CAPABILITY_AD),

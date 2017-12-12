@@ -2,6 +2,7 @@
 The MIT License (MIT)
 
 Copyright (c) 2016 Lancaster University, UK.
+Copyright (c) 2017 Paul ADAM, inidinn.com
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
@@ -22,8 +23,8 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef MICROBIT_H
-#define MICROBIT_H
+#ifndef NUCLEO_H
+#define NUCLEO_H
 
 #include "mbed.h"
 
@@ -43,7 +44,7 @@ DEALINGS IN THE SOFTWARE.
 #include "MultiButton.h"
 #include "MbedI2C.h"
 #include "MbedSerial.h"
-#include "BrainPadIO.h"
+#include "NucleoIO.h"
 #include "CodalFiber.h"
 #include "MessageBus.h"
 
@@ -59,20 +60,20 @@ DEALINGS IN THE SOFTWARE.
  */
 namespace codal
 {
-    class BrainPad : public CodalComponent
+    class Nucleo : public CodalComponent
     {
         public:
 
             codal::_mbed::Serial        serial;
             codal::_mbed::Timer         timer;
             MessageBus                  messageBus;
-            BrainPadIO                  io;
+            NucleoIO                  io;
             Button                      buttonA;
 
             /**
              * Constructor.
              */
-            BrainPad();
+            Nucleo();
 
             /**
              * Post constructor initialisation method.
@@ -131,7 +132,7 @@ namespace codal
      * @return MICROBIT_OK on success, MICROBIT_INVALID_PARAMETER milliseconds is less than zero.
      *
      */
-    inline void BrainPad::sleep(uint32_t milliseconds)
+    inline void Nucleo::sleep(uint32_t milliseconds)
     {
         fiber_sleep(milliseconds);
     }
@@ -143,7 +144,7 @@ namespace codal
      *
      * @note This will value overflow after 1.6 months.
      */
-    inline unsigned long BrainPad::systemTime()
+    inline unsigned long Nucleo::systemTime()
     {
         return system_timer_current_time();
     }

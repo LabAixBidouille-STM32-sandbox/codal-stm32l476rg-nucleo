@@ -2,6 +2,7 @@
 The MIT License (MIT)
 
 Copyright (c) 2016 Lancaster University, UK.
+Copyright (c) 2017 Paul ADAM, inidinn.com
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
@@ -23,12 +24,12 @@ DEALINGS IN THE SOFTWARE.
 */
 
 
-#include "BrainPad.h"
+#include "Nucleo.h"
 #include "Timer.h"
 
 using namespace codal;
 
-static BrainPad *device_instance = NULL;
+static Nucleo *device_instance = NULL;
 
 /**
   * Constructor.
@@ -36,7 +37,7 @@ static BrainPad *device_instance = NULL;
   * Create a representation of a GenuinoZero device, which includes member variables
   * that represent various device drivers used to control aspects of the micro:bit.
   */
-BrainPad::BrainPad() :
+Nucleo::Nucleo() :
     serial(SERIAL_TX, SERIAL_RX),
     timer(),
     messageBus(),
@@ -68,7 +69,7 @@ BrainPad::BrainPad() :
   * @note This method must be called before user code utilises any functionality
   *       contained within the GenuinoZero class.
   */
-int BrainPad::init()
+int Nucleo::init()
 {
     if (status & DEVICE_INITIALIZED)
         return DEVICE_NOT_SUPPORTED;
@@ -87,7 +88,7 @@ int BrainPad::init()
     // Seed our random number generator
     //seedRandom();
 
-    codal_dmesg_set_flush_fn(brainpad_dmesg_flush);
+    codal_dmesg_set_flush_fn(nucleo_dmesg_flush);
     status |= DEVICE_COMPONENT_STATUS_IDLE_TICK;
 
     return DEVICE_OK;
@@ -98,19 +99,19 @@ int BrainPad::init()
   * We use this for any low priority, backgrounf housekeeping.
   *
   */
-void BrainPad::idleCallback()
+void Nucleo::idleCallback()
 {
     codal_dmesg_flush();
 }
 
-void brainpad_dmesg_flush()
+void nucleo_dmesg_flush()
 {
 #if CONFIG_ENABLED(DMESG_SERIAL_DEBUG)
 #if DEVICE_DMESG_BUFFER_SIZE > 0
     if (codalLogStore.ptr > 0 && device_instance)
     {
         for (uint32_t i=0; i<codalLogStore.ptr; i++)
-            ((BrainPad *)device_instance)->serial.putc(codalLogStore.buffer[i]);
+            ((Nucleo *)device_instance)->serial.putc(codalLogStore.buffer[i]);
 
         codalLogStore.ptr = 0;
     }

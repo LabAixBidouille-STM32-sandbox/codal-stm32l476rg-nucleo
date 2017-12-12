@@ -2,6 +2,7 @@
 The MIT License (MIT)
 
 Copyright (c) 2017 Lancaster University.
+Copyright (c) 2017 Paul ADAM, inidinn.com
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
@@ -22,8 +23,8 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef MICROBIT_IO_H
-#define MICROBIT_IO_H
+#ifndef NUCLEO_IO_H
+#define NUCLEO_IO_H
 
 #include "mbed.h"
 #include "CodalConfig.h"
@@ -76,7 +77,7 @@ namespace codal
     /**
      * Represents a collection of all I/O pins exposed by the device.
      */
-    class BrainPadIO
+    class NucleoIO
     {
         public:
 
@@ -93,7 +94,7 @@ namespace codal
             /**
              * Constructor.
              */
-            BrainPadIO();
+            NucleoIO();
     };
 }
 
