@@ -26,8 +26,9 @@ add_library(codal-stm32l476rg-nucleo ${TOP_LEVEL_SOURCE_FILES} ${MODEL_SOURCE_FI
 target_link_libraries(
     codal-stm32l476rg-nucleo
     codal-stm32l476
-    codal-core
     codal-mbedos
+    codal-core
+
 )
 
 # expose it to parent cmake.
