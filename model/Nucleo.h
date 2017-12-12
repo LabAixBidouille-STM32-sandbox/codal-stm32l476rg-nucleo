@@ -150,7 +150,7 @@ namespace codal
     }
 }
 
-void nucle_dmesg_flush();
+void nucleo_dmesg_flush();
 
 using namespace codal;
 
