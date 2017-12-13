@@ -39,25 +39,19 @@
     "libraries":[
         {
             "name":"codal-core",
-            "url":"https://github.com/lancaster-university/codal-core",
+            "url":"https://github.com/LabAixBidouille-STM32/dev-pxt/codal-core",
             "branch":"master",
             "type":"git"
         },
         {
             "name":"codal-mbedos",
-            "url":"https://github.com/LabAixBidouille-STM32/codal-mbedos",
-            "branch":"master",
-            "type":"git"
-        },
-        {
-            "name":"codal-mbedos",
-            "url":"https://github.com/LabAixBidouille-STM32/codal-mbedos",
-            "branch":"master",
+            "url":"https://github.com/LabAixBidouille-STM32/dev-pxt/codal-mbedos",
+            "branch":"feature/mbedARM",
             "type":"git"
         },
         {
             "name":"codal-stm32l476",
-            "url":"https://github.com/LabAixBidouille-STM32/codal-stm32l476",
+            "url":"https://github.com/LabAixBidouille-STM32/dev-pxt/codal-stm32l476",
             "branch":"master",
             "type":"git"
         }
